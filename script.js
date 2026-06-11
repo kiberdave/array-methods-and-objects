@@ -94,6 +94,38 @@ const newConditions = gadgets.map(item => ({
 
 console.log(newConditions)
 
+//=========
+
+const allMovies = [
+  { title: "Inception", year: 2010, rating: 8.8 },
+  { title: "Interstellar", year: 2014, rating: 8.6 },
+  { title: "The Dark Knight Rises", year: 2012, rating: 8.4 },
+  { title: "Tenet", year: 2020, rating: 7.4 }
+];
+
+const importantMovies = allMovies.map(movie => ({
+  ...movie,
+  isVIP: movie.rating >= 8.5
+}))
+
+console.log(importantMovies)
+
+// ===============
+
+const passengers = [
+  { name: "Giorgi", ticketClass: "Economy", luggageWeight: 18 },
+  { name: "Nino", ticketClass: "Economy", luggageWeight: 25 },
+  { name: "Luka", ticketClass: "Business", luggageWeight: 30 },
+  { name: "Anano", ticketClass: "Economy", luggageWeight: 22 }
+];
+
+const tooMuchWeight = passengers.map(passenger => ({
+  ...passenger,
+  hasOverweight: passenger.luggageWeight > 23
+}))
+
+console.log(tooMuchWeight)
+
 // *****************************************
 
 // 7
