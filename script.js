@@ -80,60 +80,94 @@ console.log(menuTotalPrice)
 
 // *****************************************
 
-const gadgets = [
-  { title: "Smartphone", price: 1500, inStock: true },
-  { title: "Laptop", price: 3000, inStock: false },
-  { title: "Wireless Headphones", price: 250, inStock: true },
-  { title: "Smart Watch", price: 600, inStock: false }
-];
+// const gadgets = [
+//   { title: "Smartphone", price: 1500, inStock: true },
+//   { title: "Laptop", price: 3000, inStock: false },
+//   { title: "Wireless Headphones", price: 250, inStock: true },
+//   { title: "Smart Watch", price: 600, inStock: false }
+// ];
 
-const newConditions = gadgets.map(item => ({
-  ...item,
-  freeDelivery: item.inStock
-}) )
+// const newConditions = gadgets.map(item => ({
+//   ...item,
+//   freeDelivery: item.inStock
+// }) )
 
-console.log(newConditions)
+// console.log(newConditions)
 
 //=========
 
-const allMovies = [
-  { title: "Inception", year: 2010, rating: 8.8 },
-  { title: "Interstellar", year: 2014, rating: 8.6 },
-  { title: "The Dark Knight Rises", year: 2012, rating: 8.4 },
-  { title: "Tenet", year: 2020, rating: 7.4 }
-];
+// const allMovies = [
+//   { title: "Inception", year: 2010, rating: 8.8 },
+//   { title: "Interstellar", year: 2014, rating: 8.6 },
+//   { title: "The Dark Knight Rises", year: 2012, rating: 8.4 },
+//   { title: "Tenet", year: 2020, rating: 7.4 }
+// ];
 
-const importantMovies = allMovies.map(movie => ({
-  ...movie,
-  isVIP: movie.rating >= 8.5
-}))
+// const importantMovies = allMovies.map(movie => ({
+//   ...movie,
+//   isVIP: movie.rating >= 8.5
+// }))
 
-console.log(importantMovies)
+// console.log(importantMovies)
 
 // ===============
 
-const passengers = [
-  { name: "Giorgi", ticketClass: "Economy", luggageWeight: 18 },
-  { name: "Nino", ticketClass: "Economy", luggageWeight: 25 },
-  { name: "Luka", ticketClass: "Business", luggageWeight: 30 },
-  { name: "Anano", ticketClass: "Economy", luggageWeight: 22 }
-];
+// const passengers = [
+//   { name: "Giorgi", ticketClass: "Economy", luggageWeight: 18 },
+//   { name: "Nino", ticketClass: "Economy", luggageWeight: 25 },
+//   { name: "Luka", ticketClass: "Business", luggageWeight: 30 },
+//   { name: "Anano", ticketClass: "Economy", luggageWeight: 22 }
+// ];
 
-const tooMuchWeight = passengers.map(passenger => ({
-  ...passenger,
-  hasOverweight: passenger.luggageWeight > 23
-}))
+// const tooMuchWeight = passengers.map(passenger => ({
+//   ...passenger,
+//   hasOverweight: passenger.luggageWeight > 23
+// }))
 
-console.log(tooMuchWeight)
+// console.log(tooMuchWeight)
 
 // *****************************************
 
 // 7
-// const menu = [
-//   { name: "Burger", price: 20, category: "Fast Food" },
-//   { name: "Pizza", price: 30, category: "Fast Food" },
-//   { name: "Caesar Salad", price: 18, category: "Salad" },
-//   { name: "Tomato Soup", price: 12, category: "Starter" },
-//   { name: "Greek Salad", price: 16, category: "Salad" }
-// ];
+const foodMenu = [
+  { name: "Burger", price: 20, category: "Fast Food" },
+  { name: "Pizza", price: 30, category: "Fast Food" },
+  { name: "Caesar Salad", price: 18, category: "Salad" },
+  { name: "Tomato Soup", price: 12, category: "Starter" },
+  { name: "Greek Salad", price: 16, category: "Salad" }
+];
+
+const foodType = foodMenu.reduce((box, food) => {
+  if(!box[food.category]){
+    box[food.category] = [];
+  }
+  box[food.category].push(food);
+  return box;
+}, {})
+
+console.log(foodType)
+
+ // ***************
+
+ const books = [
+  { title: "The Hobbit", author: "J.R.R. Tolkien", genre: "Fantasy" },
+  { title: "Dune", author: "Frank Herbert", genre: "Sci-Fi" },
+  { title: "Harry Potter", author: "J.K. Rowling", genre: "Fantasy" },
+  { title: "1984", author: "George Orwell", genre: "Dystopian" },
+  { title: "Neuromancer", author: "William Gibson", genre: "Sci-Fi" }
+];
+
+const groupedBooks = books.reduce((acc, book) => {
+  if (!acc[book.genre]) {
+    acc[book.genre] = [];
+  }
+  
+  acc[book.genre].push(book);
+  
+  return acc;
+}, {}); 
+
+console.log(groupedBooks);
+
+// 8
 
